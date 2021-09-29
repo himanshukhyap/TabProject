@@ -7,7 +7,7 @@ import Data from "../UserData";
 import "../styles.css";
 let e1 = "", e2 = "";
 export default function UserTab() {
-  const [key, setKey] = useState("home");
+  const [key1, setKey1] = useState("home");
 
   const [details, setdetails] = useState(Data)
   function RemoveObject(y) {
@@ -29,7 +29,7 @@ export default function UserTab() {
   }
 
   const onusernameclick = (rowData) => {
-
+    setKey1(rowData.email)
 
     let detailsModified = details.map(item => {
       if (item.email == rowData.email) {
@@ -47,8 +47,8 @@ export default function UserTab() {
 
       <Tabs
         id="controlled-tab-example"
-        activeKey={key}
-        onSelect={(k) => setKey(k)}
+        activeKey={key1}
+        onSelect={(k) => setKey1(k)}
         className="mb-3"
       >
         <Tab eventKey="home" title="Home">
@@ -100,7 +100,10 @@ export default function UserTab() {
                                 item)
 
                             }}>Remove</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2" onClick={(e2) => {
+                          onusernameclick(item)
+                          e1 = e2.target.innerHTML;
+                        }}>Edit</Dropdown.Item>
                             <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                           </Dropdown.Menu>
                         </Dropdown>
@@ -126,7 +129,7 @@ export default function UserTab() {
           details.filter(item => item.isSelected).map(item => {
             return (
 
-              <Tab key={`tab_${item.email}`} eventKey={item.email} title={item.email}>
+              <Tab key={`tab_${item.email}`} eventKey={item.email} key1={item.email} title={item.email}>
 
 
 
