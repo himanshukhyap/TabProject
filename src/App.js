@@ -1,11 +1,10 @@
 import "./styles.css";
-import UserTab from "./UseTab/UserTab";
-import { Container } from "react-bootstrap";
+import Tab from "./UseTab/Tab";
 export default function App() {
   return (
-    <Container>
-      <UserTab />
-    
-    </Container>
+    <div className="">
+      {/* <UserTab /> */}
+    <Tab/>
+    </div>
   );
 }
