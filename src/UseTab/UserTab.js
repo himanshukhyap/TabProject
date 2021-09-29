@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import { Tabs, Tab } from "react-bootstrap";
-import { AiOutlineClose } from "react-icons";
+import { Tabs, Tab, Dropdown } from "react-bootstrap";
 import UserDetails from "../UserDetails/UserDetails";
-
+import { BiDotsVerticalRounded } from "react-icons/bi";
 import EditMode from "../UserDetails/EditMode";
-import user1, { user2 } from "../UserData";
-import { render } from "react-dom";
 import Data from "../UserData";
-let x;
+import "../styles.css";
+let e1 = "", e2 = "";
 export default function UserTab() {
   const [key, setKey] = useState("home");
 
   const [details, setdetails] = useState(Data)
-function RemoveObject(y){
-let RemoveUserArray = details.filter(r => r.email != y.email )
-  setdetails(RemoveUserArray);
-}
+  function RemoveObject(y) {
+    let RemoveUserArray = details.filter(r => r.email != y.email)
+    setdetails(RemoveUserArray);
+  }
 
   function updatearray(x) {
 
@@ -45,7 +43,7 @@ let RemoveUserArray = details.filter(r => r.email != y.email )
   }
 
   return (
-    <>
+    <div className="conatiner bg-light">
 
       <Tabs
         id="controlled-tab-example"
@@ -70,8 +68,9 @@ let RemoveUserArray = details.filter(r => r.email != y.email )
                 return (
                   <tr key={`tr_${item.email}`}>
                     <td>
-                      <div type="button" onClick={() => {
+                      <div type="button" onClick={(e2) => {
                         onusernameclick(item)
+                        e1 = e2.target.innerHTML;
                       }}>
                         {item.email}
                       </div>
@@ -81,10 +80,38 @@ let RemoveUserArray = details.filter(r => r.email != y.email )
                     <td>  {item.doj}</td>
                     <td>
                       <div className="d-flex gap-1">
-                        <button className="border-0 bg-light" onClick={() => {
+                        <button className="border-0 bg-light" onClick={(e2) => {
                           onusernameclick(item)
+                          e1 = e2.target.innerHTML;
                         }}>Edit</button>
-                        <button className="border-0 bg-light">...</button>
+
+
+
+
+
+                        <Dropdown className="DropdownDot">
+                          <Dropdown.Toggle variant="" id="dropdown-basic">
+                            <BiDotsVerticalRounded />
+                          </Dropdown.Toggle>
+
+                          <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1" onClick={(y) => {
+                              RemoveObject(
+                                item)
+
+                            }}>Remove</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>
+
+
+
+
+
+
+
+
                       </div>
                     </td>
                   </tr>
@@ -100,8 +127,27 @@ let RemoveUserArray = details.filter(r => r.email != y.email )
             return (
 
               <Tab key={`tab_${item.email}`} eventKey={item.email} title={item.email}>
-                {/* <UserDetails info={item} /> */}
-                <EditMode info={item} fun={(x) => { updatearray(x) }} rfun={(y) => { RemoveObject(y) }} />
+
+
+
+
+                <>
+                  {e1 == "Edit" ?
+
+                    <EditMode info={item} fun={(x) => { updatearray(x) }} rfun={(y) => { RemoveObject(y) }} />
+
+                    :
+
+                    <UserDetails info={item} rfun={(y) => { RemoveObject(y) }} />}
+
+                </>
+
+
+
+
+
+
+
               </Tab>
             )
 
@@ -109,7 +155,7 @@ let RemoveUserArray = details.filter(r => r.email != y.email )
           )
         }
       </Tabs>
-    </>
+    </div>
   );
 
 }

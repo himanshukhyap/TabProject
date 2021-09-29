@@ -4,10 +4,10 @@ export default function EditMode({ info, fun, rfun, props }) {
     let email =info.email, fname=info.fname, lname=info.lname, doj=info.doj;
 
     const [EditData, setEditData] = useState(info)
-    console.log(info)
+    
 
     const update = () => {
-        // console.log(email, fname, lname, doj);
+       
         fun({
             email: email,
             fname: fname,
@@ -48,7 +48,6 @@ export default function EditMode({ info, fun, rfun, props }) {
                 </tr>
                 <tr>
                     <div colSpan="1" className="d-flex gap-3 justify-content-center">
-
                         <div type="button" onClick={update}>Update</div>
                         <div type="button" onClick={() => { alert("reset") }}>Reset Password</div>
                         <div type="button" onClick={remove}>Remove</div>
