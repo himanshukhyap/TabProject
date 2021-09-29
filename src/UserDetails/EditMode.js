@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function EditMode({ info, fun, props }) {
+export default function EditMode({ info, fun, rfun, props }) {
     let email =info.email, fname=info.fname, lname=info.lname, doj=info.doj;
 
     const [EditData, setEditData] = useState(info)
@@ -8,8 +8,18 @@ export default function EditMode({ info, fun, props }) {
 
     const update = () => {
         // console.log(email, fname, lname, doj);
-      
         fun({
+            email: email,
+            fname: fname,
+            lname: lname,
+            doj: doj
+
+        })
+    }
+
+    const remove=()=>
+    {
+        rfun({
             email: email,
             fname: fname,
             lname: lname,
@@ -41,7 +51,7 @@ export default function EditMode({ info, fun, props }) {
 
                         <div type="button" onClick={update}>Update</div>
                         <div type="button" onClick={() => { alert("reset") }}>Reset Password</div>
-                        <div type="button" onClick={() => { alert("remove") }}>Remove</div>
+                        <div type="button" onClick={remove}>Remove</div>
                     </div>
                 </tr>
             </thead>

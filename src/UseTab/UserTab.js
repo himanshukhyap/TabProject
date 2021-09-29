@@ -12,6 +12,10 @@ export default function UserTab() {
   const [key, setKey] = useState("home");
 
   const [details, setdetails] = useState(Data)
+function RemoveObject(y){
+let RemoveUserArray = details.filter(r => r.email != y.email )
+  setdetails(RemoveUserArray);
+}
 
   function updatearray(x) {
 
@@ -97,7 +101,7 @@ export default function UserTab() {
 
               <Tab key={`tab_${item.email}`} eventKey={item.email} title={item.email}>
                 {/* <UserDetails info={item} /> */}
-                <EditMode info={item} fun={(x) => { updatearray(x) }} />
+                <EditMode info={item} fun={(x) => { updatearray(x) }} rfun={(y) => { RemoveObject(y) }} />
               </Tab>
             )
 
