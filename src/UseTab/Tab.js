@@ -28,7 +28,7 @@ export default function Tab() {
         setdetails(detailsModified);
     }
     const forclose = (rowData) => {
-      
+
         let detailsModified = details.map(item => {
             if (item.email == rowData.email) {
                 item.isSelected = false;
@@ -79,14 +79,14 @@ export default function Tab() {
             <ul className="nav nav-tabs" id="myTab" role="tablist" >
                 <li className="nav-item" role="presentation">
                     <button
-                        className={`border-0 p-2  ${tabSelected == "Home" ? "bg-dark text-white" :"bg-light text-dark"}`}
+                        className={`border-0 p-2  ${tabSelected == "Home" ? "bg-dark text-white" : "bg-light text-dark"}`}
                         id="home-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#home"
                         type="button"
                         role="tab"
                         aria-controls="home"
-                        aria-selected={`${tabSelected == "Home" ? true :false}`}
+                        aria-selected={`${tabSelected == "Home" ? true : false}`}
                         onClick={() => {
 
                             setSelected("Home")
@@ -101,26 +101,26 @@ export default function Tab() {
                         return (
                             <li className="nav-item mx-2" role="presentation">
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                <button
-                                    className={`border-0 p-2  ${tabSelected == item.email ? "bg-dark text-white" :"bg-light text-dark"}`}
-                                    id="profile-tab"
-                                    data-bs-toggle="tab"
-                                    data-bs-target="#profile"
-                                    type="button"
-                                    role="tab"
-                                    aria-controls="profile"
-                                    aria-selected={`${tabSelected == item.email ? true :false}`}
-                                    onClick={() => {
+                                    <button
+                                        className={`border-0 p-2  ${tabSelected == item.email ? "bg-dark text-white" : "bg-light text-dark"}`}
+                                        id="profile-tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#profile"
+                                        type="button"
+                                        role="tab"
+                                        aria-controls="profile"
+                                        aria-selected={`${tabSelected == item.email ? true : false}`}
+                                        onClick={() => {
 
-                                        setSelected(item.email)
-                                    }}>
-                                    <span>{item.email}</span>
+                                            setSelected(item.email)
+                                        }}>
+                                        <span>{item.email}</span>
 
 
-                                </button>
-                                <div className="nav-link px-1" onClick={() => { forclose(item) }}>
-                                    <GrFormClose size={20} color="#fff" />
-                                </div>
+                                    </button>
+                                    <div className="nav-link px-1" onClick={() => { forclose(item) }}>
+                                        <GrFormClose size={20} color="#fff" />
+                                    </div>
                                 </div>
                             </li>
                         )
@@ -189,7 +189,7 @@ export default function Tab() {
                                                             edit(item)
 
                                                         }}>Edit</Dropdown.Item>
-                                                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                                        <Dropdown.Item href="#/action-3" onClick={() => alert("rest")}>Rest Password</Dropdown.Item>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
                                             </div>
