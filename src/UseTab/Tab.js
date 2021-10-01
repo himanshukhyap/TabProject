@@ -118,9 +118,9 @@ export default function Tab() {
 
 
                                     </button>
-                                    <div className="nav-link px-1" onClick={() => { forclose(item) }}>
+                                    <button className="nav-link px-1" onClick={() => { forclose(item) }}>
                                         <GrFormClose size={20} color="#fff" />
-                                    </div>
+                                    </button>
                                 </div>
                             </li>
                         )
