@@ -85,7 +85,7 @@ export default function UserTab() {
                       <div className="d-flex gap-1">
                         <button className="border-0 bg-light" onClick={(e2) => {
                           onusernameclick(item, true)
-                        
+
                         }}>Edit</button>
 
 
@@ -105,7 +105,7 @@ export default function UserTab() {
                             }}>Remove</Dropdown.Item>
                             <Dropdown.Item href="#/action-2" onClick={(e2) => {
                               onusernameclick(item, true)
-                         
+
                             }}>Edit</Dropdown.Item>
                             <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                           </Dropdown.Menu>
@@ -115,7 +115,6 @@ export default function UserTab() {
                   </tr>
                 )
               })}
-
             </tbody>
           </table>
         </Tab>
@@ -132,8 +131,9 @@ export default function UserTab() {
 
                     :
 
-                    <UserDetails info={item} efun={(e2) => { onusernameclick(e2,true) }} rfun={(y) => { RemoveObject(y) 
-                      }} />}
+                    <UserDetails info={item} efun={(e2) => { onusernameclick(e2, true) }} rfun={(y) => {
+                      RemoveObject(y)
+                    }} />}
 
                 </>
               </Tab>

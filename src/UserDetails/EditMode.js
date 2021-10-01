@@ -1,14 +1,17 @@
 import { useState } from "react"
 
-export default function EditMode({ info, fun, rfun, props }) {
+export default function EditMode({ info, ufun, rfun, props }) {
     let email =info.email, fname=info.fname, lname=info.lname, doj=info.doj;
+console.log(info)
+console.log(ufun)
+console.log(rfun)
 
     const [EditData, setEditData] = useState(info)
     
 
     const update = () => {
        
-        fun({
+        ufun({
             email: email,
             fname: fname,
             lname: lname,
@@ -32,7 +35,7 @@ export default function EditMode({ info, fun, rfun, props }) {
             <thead>
                 <tr>
                     <th scope="row">Email</th>
-                    <td> <input className="w-75 border-0" id="email" type="text" defaultValue={EditData.email} onChange={(event) => { email = event.target.value; }} readOnly/></td>
+                    <td> <input className="w-75 border-0" id="email" type="text" defaultValue={EditData.email} readOnly/></td>
                 </tr>
                 <tr>
                     <th scope="row">First Name</th>
@@ -47,11 +50,13 @@ export default function EditMode({ info, fun, rfun, props }) {
                     <td><input className="w-75 border-0" id="doj" type="text" defaultValue={EditData.doj} onChange={(event) => { doj = event.target.value; }} /></td>
                 </tr>
                 <tr>
+                    <td>
                     <div colSpan="1" className="d-flex gap-3 justify-content-center">
                         <div type="button" onClick={update}>Update</div>
                         <div type="button" onClick={() => { alert("reset") }}>Reset Password</div>
                         <div type="button" onClick={remove}>Remove</div>
                     </div>
+                        </td>
                 </tr>
             </thead>
         </table>

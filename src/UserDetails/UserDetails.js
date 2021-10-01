@@ -33,7 +33,7 @@ export default function UserDetails({ info, efun, rfun, props }) {
           <td>
             <div colSpan="1" className="d-flex gap-3 justify-content-center">
 
-              <div type="button" onClick={(e2) => { efun(info) }}>Edit</div>
+              <div type="button" onClick={() => { efun(info) }}>Edit</div>
               <div type="button">Reset Password</div>
               <div type="button" onClick={remove}>Remove</div>
             </div>
