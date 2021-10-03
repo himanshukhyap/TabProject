@@ -100,7 +100,7 @@ export default function Tab() {
                     details.filter(f => f.isSelected).map(item => {
                         return (
                             <li className="nav-item mx-2" role="presentation">
-                                <div class="btn-group" role="group" aria-label="Basic example">
+                                <div className="btn-group" role="group" aria-label="Basic example">
                                     <button
                                         className={`border-0 p-2  ${tabSelected == item.email ? "bg-dark text-white" : "bg-light text-dark"}`}
                                         id="profile-tab"

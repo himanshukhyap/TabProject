@@ -55,7 +55,7 @@ export default function UserTab() {
 
       >
         <Tab eventKey="home" title="Home">
-          <table class="table table-striped table-borderless">
+          <table className="table table-striped table-borderless">
             <thead>
               <tr>
                 <th scope="col">Email</th>
